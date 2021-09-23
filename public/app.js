@@ -1,13 +1,24 @@
 document.addEventListener("DOMContentLoaded", event =>{
     const app = firebase.app();
     const db = firebase.firestore();
-    const user = db.collection('users').doc('user1');  
-    const query = db.collection('darbai').where('sritis','==', 'IT' );      // gauti pagal kazka fcijom
+    // const user = db.collection('users').doc('user1');  
+    // const query = db.collection('darbai').where('sritis','==', 'IT' );      // gauti pagal kazka fcijom
     //orderBy pagal kazka galima rikiuoti ir grazinti
     // const query = db.collection('darbai').orderBy('atttr','desc').limit(1)   
     // gauti pagal kazka fcijom
     // firebase storage kur desim user cv's ar kitus doksus
-
+    })
+   
+    function getAllUsers(){
+        const allUsers = db.collection('users');
+        allUsers.get()
+            .then(users => {
+                users.forEach(user => {
+                    data = user.data();
+                    console.log(data)
+                });
+            })
+    } 
 
     // query.get()
     // .then(darbai => {
@@ -32,7 +43,7 @@ document.addEventListener("DOMContentLoaded", event =>{
     //         document.querySelector('#pavadinimas').innerHTML = data.pavadinimas
     //     }) 
 
-   }) 
+//    }) 
 
 function googleLogin(){
     const provider = new firebase.auth.GoogleAuthProvider();
