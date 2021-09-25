@@ -1,20 +1,22 @@
 document.addEventListener("DOMContentLoaded", event =>{
     const app = firebase.app();
     const db = firebase.firestore();
-   
-})
-   
-function getAllUsers(){
-        const allUsers = db.collection('users');
-        allUsers.get()
-            .then(users => {
-                users.forEach(user => {
-                    data = user.data();
-                    console.log(data);
-                });
-            })
-} 
 
+})
+
+
+function getCollectionData(collection_name){
+    const db = firebase.firestore();
+    const allData = db.collection(collection_name);
+    
+    allData.get()
+        .then(posts => {
+            posts.forEach(post => {
+                data = post.data();
+                console.log(data);
+            });
+        })
+} 
 
 function getCollectionAttributeWhere(){
         const query = db.collection('darbai').where('sritis','==', 'IT' );      // gauti pagal kazka fcijom
