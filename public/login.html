@@ -3,11 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Darbas</title>
+    <title>Log in</title>
 
     <!-- update the version number as needed -->
-
-
     <script defer src="/__/firebase/9.0.2/firebase-app-compat.js"></script>
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/9.0.2/firebase-auth-compat.js"></script>
@@ -29,19 +27,33 @@
   </head>
 
   <body>
-  
-   
-
-   
-
-    <div id="loggeg-in">
-      <h3>Logged in</h3>
-      <button onclick="logout()">Log out</button>
+    <div id="not-logged-in">
+      <h3>Please log in</h3>
+      <form onsubmit="login(event)">
+        <input type="text" id="email" placeholder="el pastas"/>
+        <input type="password" id="password" placeholder="slaptazodis"/>
+        <button type="submit">Sign in</button>
+        <p id="error"></p>
+     </form>
     </div>
 
+    <div id="create-account">
+        <h3>Registruotis</h3>
+        <form onsubmit="createAccount(event)">
+          <input type="text" id="email-create" placeholder="el pastas"/>
+          <input type="password" id="password-create" placeholder="slaptazodis"/>
+          <button type="submit">Pateikti</button>
+  
+       </form>
+      </div>
 
 
-  <script src="app.js"></script>
+  <button id="fbL_login_btn" onclick="googleLogin()">Login With Google</button>
+  <button id= "google_login_btn"onclick="facebookLogin()">Login With Facebook</button>
+
+    
+
+    <script src="app.js"></script>
 
 
 </body>
